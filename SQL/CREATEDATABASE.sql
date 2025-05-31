@@ -1,0 +1,1 @@
+CREATE DATABASE Sistema_Financeiro;
