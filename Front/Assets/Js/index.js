@@ -1,5 +1,5 @@
 
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
 
     const table_id = document.getElementById('table_id')
     const btn_incluir = document.getElementById('btn_incluir')
@@ -18,35 +18,37 @@ document.addEventListener('DOMContentLoaded', function() {
     1.071h14c.552 0 1-.48 1-1.071 0-3.905 0-14.423 
     0-14.423zm-5.75 2.494c.414 0 .75.336.75.75v8.5c0 .414-.336.75-.75.75s-.75-.336-.75-.75v-8.5c0-.414.336-.75.75-.75zm-4.5 0c.414 0 .75.336.75.75v8.5c0 .414-.336.75-.75.75s-.75-.336-.75-.75v-8.5c0-.414.336-.75.75-.75zm-.75-5v-1c0-.535.474-1 1-1h4c.526 0 1 .465 1 1v1h5.254c.412 0 .746.335.746.747s-.334.747-.746.747h-16.507c-.413 0-.747-.335-.747-.747s.334-.747.747-.747zm4.5 0v-.5h-3v.5z" fill-rule="nonzero"/></svg>`;
 
-    btn_incluir.addEventListener('click', function() {
+    btn_incluir.addEventListener('click', function () {
         const descricaoValor = document.getElementById('inptdesc_id').value;
         const valorInput = document.getElementById('InputValueHTML');
         const tipoValor = document.getElementById('InputSelect_id').value;
-        
+        const dataValor = document.getElementById('InputValueData_id').value;
+
         // Verificar se algum campo está vazio
-        if (!descricaoValor || isNaN(parseFloat(valorInput.value))|| !tipoValor) {
+        if (!descricaoValor || isNaN(parseFloat(valorInput.value)) || !tipoValor) {
             alert('Por favor, preencha todos os campos corretamente.')
             return
-        }        
+        }
 
         // Formatar o valor usando toLocaleString
         const valorFormatado = parseFloat(valorInput.value).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL', minimumFractionDigits: 2, maximumFractionDigits: 2 });
 
         const Valores = {
+            Data: dataValor,
             Description: descricaoValor,
             Valor: valorFormatado,
             tipo: tipoValor,
             excluir: svgString
         };
-    
+
         information.push(Valores);
-    
+
         let somaEntrada = 0;
         let somaSaida = 0;
-    
-        information.forEach(function(item) {
+
+        information.forEach(function (item) {
             const valorNumerico = parseFloat(item.Valor.replace('R$', '').replace('.', '').replace(',', '.'));
-    
+
             if (item.tipo === 'Entrada') {
                 somaEntrada += valorNumerico;
             } else if (item.tipo === 'Saida') {
@@ -65,33 +67,36 @@ document.addEventListener('DOMContentLoaded', function() {
         index++;
 
         // Criar quatro novas células (td)
-        const newTd = document.createElement('td');
-        const newTd1 = document.createElement('td');
-        const newTd2 = document.createElement('td');
-        const newTd3 = document.createElement('td');
+        const tdData = document.createElement('td');
+        const tdDescricao = document.createElement('td');
+        const tdValor = document.createElement('td');
+        const tdTipo = document.createElement('td');
+        const tdExcluir = document.createElement('td');
 
         // Adicionar os valores do objeto às células
-        newTd.textContent = Valores.Description;
-        newTd1.textContent = Valores.Valor;
-        newTd2.textContent = Valores.tipo;
+        tdData.textContent = Valores.Data;
+        tdDescricao.textContent = Valores.Description;
+        tdValor.textContent = Valores.Valor;
+        tdTipo.textContent = Valores.tipo;
 
         // Adicionar o SVG à célula usando innerHTML
-        newTd3.innerHTML = Valores.excluir;
+        tdExcluir.innerHTML = Valores.excluir;
 
         // Adicionar classes ou estilos conforme necessário
         newTable.classList.add('TableStyle');
 
         // Adicionar as células à nova linha
-        newTable.appendChild(newTd);
-        newTable.appendChild(newTd1);
-        newTable.appendChild(newTd2);
-        newTable.appendChild(newTd3);
+        newTable.appendChild(tdData);
+        newTable.appendChild(tdDescricao);
+        newTable.appendChild(tdValor);
+        newTable.appendChild(tdTipo);
+        newTable.appendChild(tdExcluir);
 
         // Adicionar a nova linha à tabela
         table_id.appendChild(newTable);
 
         // Adicionar o evento de clique ao SVG dentro da nova linha
-        newTd3.querySelector('.SVG').addEventListener('click', function(event) {
+        tdExcluir.querySelector('.SVG').addEventListener('click', function (event) {
             // Obtendo o elemento pai do SVG (a célula <td>)
             const tdPai = event.target.closest('td');
 
@@ -120,16 +125,16 @@ document.addEventListener('DOMContentLoaded', function() {
                 atualizarValores()
                 atualizarEntradas()
                 atualizarSaidas()
-                
+
             }
         }
-        
+
         // aqui atualiza o valores 
         function atualizarValores() {
             let somaEntrada = 0;
             let somaSaida = 0;
 
-            information.forEach(function(item) {
+            information.forEach(function (item) {
                 const valorNumerico = parseFloat(item.Valor.replace('R$', '').replace('.', '').replace(',', '.'));
 
                 if (item.tipo === 'Entrada') {
@@ -150,7 +155,7 @@ document.addEventListener('DOMContentLoaded', function() {
         function atualizarEntradas() {
             let somaEntrada = 0;
 
-            information.forEach(function(item) {
+            information.forEach(function (item) {
                 const valorNumerico = parseFloat(item.Valor.replace('R$', '').replace('.', '').replace(',', '.'));
 
                 if (item.tipo === 'Entrada') {
@@ -164,15 +169,15 @@ document.addEventListener('DOMContentLoaded', function() {
         //aqui atualiza os valores de Saida quando remove um item
         function atualizarSaidas() {
             let somaSaida = 0;
-        
-            information.forEach(function(item) {
+
+            information.forEach(function (item) {
                 const valorNumerico = parseFloat(item.Valor.replace('R$', '').replace('.', '').replace(',', '.'));
-        
+
                 if (item.tipo === 'Saida') {
                     somaSaida += valorNumerico;
                 }
             });
-        
+
             DadosSaidas.textContent = "R$ " + somaSaida.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
         }
 

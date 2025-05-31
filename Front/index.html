@@ -1,15 +1,16 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./Assets/Css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Kanit:wght@300&display=swap"
         rel="stylesheet">
-    <script src="./index.js"></script>
+    <script src="./Assets/Js/index.js"></script>
+    <script src="./Assets/Js/requests.js"></script>
     <title>Sistema Financeiro</title>
 </head>
 
@@ -30,6 +31,10 @@
 
         </div>
         <div class="InputsValores" id="InfoValores_id">
+            <div class="DescInput" id="ValorInput_datac">
+                <label for="data">Data</label>
+                <input class="inptdesc" id="InputValueData_id" type="date">
+            </div>
             <div class="DescInput" id="DescInput_id">
                 <label for="Descricao">Descrição</label>
                 <input class="inptdesc" type="text" id="inptdesc_id">
@@ -46,7 +51,7 @@
                 </select>
             </div>
             <div class="ContainerBTN" id="ContainerBTN_id">
-                <button class="botao-incluir" id="btn_incluir">Incluir</button>
+                <button class="botao-incluir" id="btn_incluir" onclick="SendNewBalanceEntry()">Incluir</button>
             </div>
 
         </div>
@@ -54,6 +59,7 @@
         <div class="TabelaSpam" id="TabelaSpam_id">
             <table id="table_id" style="width:80%">
                 <tr class="TableStyle">
+                    <th>Data</th>
                     <th>Descrição</th>
                     <th>Valor</th>
                     <th>tipo</th>

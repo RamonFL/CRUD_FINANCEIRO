@@ -1,18 +1,18 @@
-*{
+* {
     margin: 0px;
     padding: 0px;
     box-sizing: border-box;
 }
 
-body{
+body {
     padding-top: 2.5rem;
     justify-content: center;
     display: flex;
     background-color: rgb(46, 46, 46);
-    
+
 }
 
-.fullprog{
+.fullprog {
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -20,10 +20,10 @@ body{
     background-color: #ffffff;
     border-radius: 10px;
     padding-bottom: 40px;
-    
+
 }
 
-.ContainerValores{
+.ContainerValores {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -31,10 +31,10 @@ body{
     width: 600px;
     font-family: 'Dancing Script', cursive;
     font-family: 'Kanit', sans-serif;
-   
+
 }
 
-.InfoValores{
+.InfoValores {
     padding-top: 10px;
     width: 600px;
     display: flex;
@@ -44,34 +44,42 @@ body{
 .quadrado {
     width: 150px;
     height: 100px;
-    background-color: #ffffff; /* Cor de fundo azul, você pode ajustar conforme necessário */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.7); /* Sombra */
-    border: 1px solid #000000; /* Borda sólida azul escuro */
-    border-radius: 5px; /* Borda arredondada */
+    background-color: #ffffff;
+    /* Cor de fundo azul, você pode ajustar conforme necessário */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.7);
+    /* Sombra */
+    border: 1px solid #000000;
+    /* Borda sólida azul escuro */
+    border-radius: 5px;
+    /* Borda arredondada */
     padding: 0.7rem;
     font-size: 1.3rem;
 }
-.InputsValores{
+
+.InputsValores {
     padding: 2.0rem;
-    width: 600px;
+    width: 800px;
     display: flex;
     justify-content: space-around;
 
 }
-.DescInput{
+
+.DescInput {
     display: flex;
     flex-direction: column;
     font-size: 20px;
     font-family: 'Dancing Script', cursive;
     font-family: 'Kanit', sans-serif;
 }
-.inptdesc{
+
+.inptdesc {
     width: 150px;
     height: 25px;
     border-radius: 5px;
     padding-left: 5px;
 }
-.options{
+
+.options {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -81,51 +89,61 @@ body{
     font-family: 'Dancing Script', cursive;
     font-family: 'Kanit', sans-serif;
 }
-.InputSelect{
+
+.InputSelect {
     width: 100px;
-    border-radius:5px ;
+    border-radius: 5px;
     height: 25px;
     font-size: 16px;
     font-family: 'Dancing Script', cursive;
     font-family: 'Kanit', sans-serif;
 }
+
 .botao-incluir {
     display: inline-block;
-    
+
     font-size: 16px;
     text-align: center;
     text-decoration: none;
     color: #fff;
-    background-color: #3498db; /* Cor de fundo azul meio claro */
+    background-color: #3498db;
+    /* Cor de fundo azul meio claro */
     border: none;
-    border-radius: 5px; /* Borda arredondada */
+    border-radius: 5px;
+    /* Borda arredondada */
     cursor: pointer;
     transition: background-color 0.3s;
     height: 25px;
     width: 70px;
 
 }
+
 .botao-incluir:hover {
-    background-color: #2980b9; /* Altera a cor de fundo ao passar o mouse */
+    background-color: #2980b9;
+    /* Altera a cor de fundo ao passar o mouse */
 }
-.ContainerBTN{
+
+.ContainerBTN {
     display: flex;
     align-items: end;
     justify-content: center;
 }
-.TabelaSpam{
+
+.TabelaSpam {
     width: 100%;
     display: flex;
     justify-content: center;
 }
-.TableStyle{
+
+.TableStyle {
     display: flex;
-    justify-content: space-between;    
+    justify-content: space-between;
     width: 100%;
     font-family: 'Dancing Script', cursive;
     font-family: 'Kanit', sans-serif;
 }
-.SVG{
+
+.SVG {
     height: 16px;
     cursor: pointer;
 }
