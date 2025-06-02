@@ -1,4 +1,3 @@
-
 document.addEventListener('DOMContentLoaded', function () {
 
     const table_id = document.getElementById('table_id')
@@ -10,7 +9,7 @@ document.addEventListener('DOMContentLoaded', function () {
     let DadosTotal = document.getElementById('DadosTotal')
 
 
-    const svgString = `<svg class="SVG" id="SVG_id" clip-rule="evenodd" 
+    const svgString = `<svg class="SVG" id="SVG_id" onclick="DeletLine()" clip-rule="evenodd" 
     fill-rule="evenodd" stroke-linejoin="round" 
     stroke-miterlimit="2" viewBox="0 0 24 24" 
     xmlns="http://www.w3.org/2000/svg"><path 
@@ -34,6 +33,7 @@ document.addEventListener('DOMContentLoaded', function () {
         const valorFormatado = parseFloat(valorInput.value).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL', minimumFractionDigits: 2, maximumFractionDigits: 2 });
 
         const Valores = {
+            index: index,
             Data: dataValor,
             Description: descricaoValor,
             Valor: valorFormatado,
@@ -181,7 +181,7 @@ document.addEventListener('DOMContentLoaded', function () {
             DadosSaidas.textContent = "R$ " + somaSaida.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
         }
 
-        console.log(information)
     });
 
 });
+

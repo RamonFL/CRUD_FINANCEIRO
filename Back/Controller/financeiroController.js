@@ -1,11 +1,16 @@
 const sistemModel = require("../Model/sistemModel")
-
 const financeiroController = {
     Criar: (req, res) => {
-        console.log(req.body);
-        res.send("Teste")
-        // const objeto = sistemModel.CriarDados()
-        // res.send(console.log(objeto))
+        const {description, financial, entry, date} = req.body
+        sistemModel.CriarDados(description, financial, entry, date)
+        res.send("Criado")
+    },
+
+    Deletar: (req, res) => {
+        console.log(req.body)
+        let {id} = req.body
+        sistemModel.ExcluirDados(id)
+        res.send("exlcuido")
     }
 }
 

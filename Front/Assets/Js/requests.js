@@ -7,7 +7,7 @@ function SendNewBalanceEntry() {
     const entryTypeValue = document.getElementById('InputSelect_id').value;
     const entryDateValue = document.getElementById('InputValueData_id').value;
 
-    const endpoint = "lista"
+    const endpoint = "criar"
     const xhr = new XMLHttpRequest();
     xhr.open("POST", server + endpoint);
 
@@ -15,9 +15,9 @@ function SendNewBalanceEntry() {
     xhr.setRequestHeader("Content-Type", "application/json");
 
     xhr.onreadystatechange = () => {
-        // Call a function when the state changes.
+        
         if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
-            // Request finished. Do processing here.
+            
         }
     };
 
@@ -30,7 +30,15 @@ function SendNewBalanceEntry() {
     };
 
     var body = JSON.stringify(bodyRequest);
-    console.log(body.toString)
     xhr.send(body);
+    
+}
 
+function  DeletLine() {
+    
+    const tr = document.querySelector('tr[data-index]');
+    let indexStr = tr.getAttribute('data-index');
+    const indexNum = Number(indexStr)
+    let id = indexNum
+    console.log(id)
 }
