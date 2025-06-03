@@ -34,11 +34,27 @@ function SendNewBalanceEntry() {
     
 }
 
-function  DeletLine() {
+function DelObject(index) {
+
+    const endpoint = "deletar"
+    const xhr = new XMLHttpRequest();
+    xhr.open("DELETE", server + endpoint);
+
+    // Send the proper header information along with the request
+    xhr.setRequestHeader("Content-Type", "application/json");
+
+    xhr.onreadystatechange = () => {
+        
+        if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
+            
+        }
+    };
     
-    const tr = document.querySelector('tr[data-index]');
-    let indexStr = tr.getAttribute('data-index');
-    const indexNum = Number(indexStr)
-    let id = indexNum
-    console.log(id)
+    const bodyRequest =
+    {
+        id:index
+    };
+
+    var body = JSON.stringify(bodyRequest);
+    xhr.send(body);
 }

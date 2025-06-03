@@ -7,7 +7,6 @@ const financeiroController = {
     },
 
     Deletar: (req, res) => {
-        console.log(req.body)
         let {id} = req.body
         sistemModel.ExcluirDados(id)
         res.send("exlcuido")
