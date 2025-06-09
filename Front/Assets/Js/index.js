@@ -1,4 +1,3 @@
-
 document.addEventListener('DOMContentLoaded', function () {
 
     const table_id = document.getElementById('table_id')
@@ -183,8 +182,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
             DadosSaidas.textContent = "R$ " + somaSaida.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
         }
-        console.log("Informatio,", information)
     });
-
 });
 

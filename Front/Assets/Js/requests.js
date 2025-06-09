@@ -1,4 +1,5 @@
 
+
 const server = "http://localhost:3000/";
 
 function SendNewBalanceEntry() {
@@ -31,6 +32,7 @@ function SendNewBalanceEntry() {
 
     var body = JSON.stringify(bodyRequest);
     xhr.send(body);
+
     
 }
 
