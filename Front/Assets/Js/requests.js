@@ -60,3 +60,30 @@ function DelObject(index) {
     var body = JSON.stringify(bodyRequest);
     xhr.send(body);
 }
+
+async function dados_db(date, financial, description, entry) {
+    const endpoint = "dados"
+    const xhr = new XMLHttpRequest();
+    xhr.open("GET", server + endpoint);
+
+    // Send the proper header information along with the request
+    xhr.setRequestHeader("Content-Type", "application/json")
+
+    xhr.onreadystatechange = () => {
+        
+        if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
+            
+        }
+    };
+    
+    const bodyRequest =
+    {
+        data:date,
+        valor:financial,
+        descricao:description,
+        tipo:entry
+    };
+
+    var body = JSON.stringify(bodyRequest);
+    xhr.send(body);
+}

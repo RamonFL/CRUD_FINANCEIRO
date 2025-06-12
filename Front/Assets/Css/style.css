@@ -42,7 +42,7 @@ body {
 }
 
 .quadrado {
-    width: 150px;
+    width: 180px;
     height: 100px;
     background-color: #ffffff;
     /* Cor de fundo azul, você pode ajustar conforme necessário */
@@ -107,6 +107,25 @@ body {
     text-decoration: none;
     color: #fff;
     background-color: #3498db;
+    /* Cor de fundo azul meio claro */
+    border: none;
+    border-radius: 5px;
+    /* Borda arredondada */
+    cursor: pointer;
+    transition: background-color 0.3s;
+    height: 25px;
+    width: 70px;
+
+}
+
+.botao-refesh {
+    display: inline-block;
+
+    font-size: 16px;
+    text-align: center;
+    text-decoration: none;
+    color: #fff;
+    background-color: #09ff00;
     /* Cor de fundo azul meio claro */
     border: none;
     border-radius: 5px;

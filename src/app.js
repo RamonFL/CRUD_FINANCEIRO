@@ -3,19 +3,16 @@ const cors = require('cors')
 const router = require('./routes')
 const app = express()
 const PORT = 3000
+const client = require('../SQL/db');
 
 // Middleware para interpretar JSON no corpo da requisição
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cors());
 
-const client = require('../SQL/db');
-
-client.query('SELECT * FROM tb_fluxo_caixa', (err, res) => {
+client.query('SELECT * FROM tb_fluxo_caixa', (err) => {
     if (err) {
     console.error('Erro ao executar a query', err);
-    } else {
-    console.log(res.rows); // mostra os dados da tabela
     }
 })
 

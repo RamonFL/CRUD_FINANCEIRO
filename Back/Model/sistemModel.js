@@ -1,6 +1,6 @@
-const client = require('../../SQL/db');
+const client = require('../../SQL/db')
 
-let id = 1
+
 const sistemModel = {
     CriarDados(description, financial, entry, date) {
         
@@ -17,7 +17,8 @@ const sistemModel = {
         inserirdados(date, financial, description, entry)
     },
 
-    ExcluirDados(id){
+    async ExcluirDados(id){
+        
         const index = arr.findIndex(item => item.id == id)
 
         if(index !== -1){
@@ -25,7 +26,19 @@ const sistemModel = {
         }else{
             console.log("objeto nao encontrado")
         }
+    },
+    async Dados(){
+        try {
+            const db = await client.query('SELECT * FROM tb_fluxo_caixa');
+            const dados = db.rows;
+            return dados
+
+        } catch (err) {
+            console.error('Erro ao buscar dados:', err);
+            return [];
+        }
     }
 }
+
 
 module.exports = sistemModel
